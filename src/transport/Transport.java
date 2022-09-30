@@ -38,6 +38,34 @@ public class Transport {
         setMaxSpeed(maxSpeed);
     }
 
+    public Transport(String brand, String model, int productionYear, String productionCountry, int maxSpeed) {
+        if (brand != null && !brand.isEmpty() && !brand.isBlank()) {
+            this.brand = brand;
+        } else {
+            this.brand = "default";
+        }
+
+        if (model != null && !model.isEmpty() && !model.isBlank()) {
+            this.model = model;
+        } else {
+            this.model = "default";
+        }
+
+        if (productionYear <= 0) {
+            this.productionYear = 2000;
+        } else {
+            this.productionYear = productionYear;
+        }
+
+        if (productionCountry != null && !productionCountry.isEmpty() && !productionCountry.isBlank()) {
+            this.productionCountry = productionCountry;
+        } else {
+            this.productionCountry = "default";
+        }
+
+        setMaxSpeed(maxSpeed);
+    }
+
     public Transport(String brand, String model, int productionYear, String productionCountry) {
         this(brand, model, productionYear, productionCountry, "белый", 100);
     }

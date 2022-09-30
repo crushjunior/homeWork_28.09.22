@@ -26,5 +26,28 @@ public class Main {
         System.out.println();
         bmw.getInsurance().checkExpireDate();
         bmw.getInsurance().checkNumber();
+
+
+
+        Train swallow = new Train("Ласточка", "B-901", 2011, "Россия", 301, "Белорусскй вокзал", "Минск-Пассажирский", 11, 3500, 8);
+        Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", 270, "Ленинградский вокзал", "Ленинград-Пассажирский", 8, 1700, 2);
+        System.out.println();
+        getInfoTrain(swallow);
+        getInfoTrain(leningrad);
+
+    }
+
+    public static void getInfoTrain(Train train) {
+        System.out.println(train.getBrand() + " " + train.getModel()
+                        + ", " + "Год выпуска: " + train.getProductionYear()
+                        + ", " + "Страна производства: " + train.getProductionCountry()
+                + ", " + "Максимальная скорость: " + train.getMaxSpeed() + " км/ч"
+                + ", " + "Станция отбытия: " + train.getStartStation()
+                + ", " + "Конечная остановка: " + train.getFinishStation()
+                + ", " + "Количество вагонов: " + train.getCountCarriage()
+                + ", " + "Стоимость поездки: " + train.getCostRide()
+                + ", " + "Время в пути: " + train.getTimeRide() + " ч."
+
+        );
     }
 }
