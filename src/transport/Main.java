@@ -35,6 +35,13 @@ public class Main {
         getInfoTrain(swallow);
         getInfoTrain(leningrad);
 
+        Bus paz = new Bus("Паз", "32053-70", 2005, "Россия", "Белый", 90);
+        Bus mers = new Bus("Mersedes", "V-class", 2018, "Германия", "Синий", 190);
+        Bus fiat = new Bus("Fiat", "Doblo", 2016, "Франция", "Черный", 130);
+        System.out.println();
+        getInfoBus(paz);
+        getInfoBus(mers);
+        getInfoBus(fiat);
     }
 
     public static void getInfoTrain(Train train) {
@@ -47,7 +54,15 @@ public class Main {
                 + ", " + "Количество вагонов: " + train.getCountCarriage()
                 + ", " + "Стоимость поездки: " + train.getCostRide()
                 + ", " + "Время в пути: " + train.getTimeRide() + " ч."
+        );
+    }
 
+    public static void getInfoBus(Bus bus) {
+        System.out.println(bus.getBrand() + " " + bus.getModel()
+                + ", " + "Год выпуска: " + bus.getProductionYear()
+                + ", " + "Страна производства: " + bus.getProductionCountry()
+                + ", " + "Максимальная скорость: " + bus.getMaxSpeed() + " км/ч"
+                + ", " + "Цвет кузова: " + bus.getColor()
         );
     }
 }
