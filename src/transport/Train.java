@@ -7,8 +7,12 @@ public class Train extends Transport {
     private final String finishStation;
     private int countCarriage;
 
-    public Train(String brand, String model, int productionYear, String productionCountry, int maxSpeed, String startStation, String finishStation, int countCarriage, double costRide, double timeRide) {
-        super(brand, model, productionYear, productionCountry, maxSpeed);
+    public void refill() {
+        System.out.println(getBrand() + " " + getModel() + " вид топлива: " + getFuel());
+    }
+
+    public Train(String brand, String model, int productionYear, String productionCountry, int maxSpeed, String fuel, String startStation, String finishStation, int countCarriage, double costRide, double timeRide) {
+        super(brand, model, productionYear, productionCountry, maxSpeed, fuel);
         setCostRide(costRide);
 
         setCountCarriage(countCarriage);

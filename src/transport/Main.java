@@ -4,17 +4,17 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Car lada = new Car("Lada", "Granta", 160, 1.7, "Жёлтый", 2015, "Россия");
+        Car lada = new Car("Lada", "Granta", 160, "Жёлтый", 2015, "Россия", "Бензин", 1.7);
         lada.setGear("Автомат");
         lada.setRegNumber("e123rr1223");
         System.out.println(lada.isCorrectNumber());
         lada.changeTyre();
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 240, 3.0, "Чёрный", 2020, "Германия");
+        Car audi = new Car("Audi", "A8 50 L TDI quattro", 240, "Чёрный", 2020, "Германия", "Дизель", 3.0);
         audi.setKey(new Car.Key(true,true));
-        Car bmw = new Car("BMW", "Z8", 260, 3.0, "Чёрный", 2021, "Германия");
+        Car bmw = new Car("BMW", "Z8", 260, "Чёрный", 2021, "Германия", "Бензин", 3.0);
         bmw.setInsurance(new Car.Insurance(LocalDate.now(), 9_000, "1244"));
-        Car kia = new Car("KIA", "Sportage", 200, 2.4, "Красный", 2018, "Южная Корея");
-        Car hyundai = new Car("Hyundai", "Avante", 180, 1.6, "Оранжевый", 2016, "Южная Корея");
+        Car kia = new Car("KIA", "Sportage", 200, "Красный", 2018, "Южная Корея", "Бензин", 2.4);
+        Car hyundai = new Car("Hyundai", "Avante", 180, "Оранжевый", 2016, "Южная Корея", "Элекричество", 0.0);
 
 
 
@@ -26,22 +26,28 @@ public class Main {
         System.out.println();
         bmw.getInsurance().checkExpireDate();
         bmw.getInsurance().checkNumber();
+        lada.refill();
+        hyundai.refill();
+        audi.refill();
 
 
 
-        Train swallow = new Train("Ласточка", "B-901", 2011, "Россия", 301, "Белорусскй вокзал", "Минск-Пассажирский", 11, 3500, 8);
-        Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", 270, "Ленинградский вокзал", "Ленинград-Пассажирский", 8, 1700, 2);
+        Train swallow = new Train("Ласточка", "B-901", 2011, "Россия", 301, "Дизель", "Белорусскй вокзал", "Минск-Пассажирский", 11, 3500, 8);
+        Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", 270, "Дизель", "Ленинградский вокзал", "Ленинград-Пассажирский", 8, 1700, 2);
         System.out.println();
         getInfoTrain(swallow);
         getInfoTrain(leningrad);
+        swallow.refill();
 
-        Bus paz = new Bus("Паз", "32053-70", 2005, "Россия", "Белый", 90);
-        Bus mers = new Bus("Mersedes", "V-class", 2018, "Германия", "Синий", 190);
-        Bus fiat = new Bus("Fiat", "Doblo", 2016, "Франция", "Черный", 130);
+        Bus paz = new Bus("Паз", "32053-70", 2005, "Россия", "Белый", 90, "Дизель");
+        Bus mers = new Bus("Mersedes", "V-class", 2018, "Германия", "Синий", 190, "Бензин");
+        Bus fiat = new Bus("Fiat", "Doblo", 2016, "Франция", "Черный", 130, "Бензин");
         System.out.println();
         getInfoBus(paz);
         getInfoBus(mers);
         getInfoBus(fiat);
+        mers.refill();
+        paz.refill();
     }
 
     public static void getInfoTrain(Train train) {

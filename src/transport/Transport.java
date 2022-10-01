@@ -1,14 +1,17 @@
 package transport;
 
-public class Transport {
+public abstract class Transport {
     private final String brand;
     private final String model;
     private final int productionYear;
     private final String productionCountry;
     private String color;
     private int maxSpeed;
+    private final String fuel;
 
-    public Transport(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed) {
+    protected abstract void refill();
+
+    public Transport(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed, String fuel) {
         if (brand != null && !brand.isEmpty() && !brand.isBlank()) {
             this.brand = brand;
         } else {
@@ -31,6 +34,12 @@ public class Transport {
             this.productionCountry = productionCountry;
         } else {
             this.productionCountry = "default";
+        }
+
+        if (fuel != null && !fuel.isEmpty() && !fuel.isBlank()) {
+            this.fuel = fuel;
+        } else {
+            this.fuel = "default";
         }
 
         setColor(color);
@@ -38,7 +47,7 @@ public class Transport {
         setMaxSpeed(maxSpeed);
     }
 
-    public Transport(String brand, String model, int productionYear, String productionCountry, int maxSpeed) {
+    public Transport(String brand, String model, int productionYear, String productionCountry, int maxSpeed, String fuel) {
         if (brand != null && !brand.isEmpty() && !brand.isBlank()) {
             this.brand = brand;
         } else {
@@ -63,11 +72,13 @@ public class Transport {
             this.productionCountry = "default";
         }
 
-        setMaxSpeed(maxSpeed);
-    }
+        if (fuel != null && !fuel.isEmpty() && !fuel.isBlank()) {
+            this.fuel = fuel;
+        } else {
+            this.fuel = "default";
+        }
 
-    public Transport(String brand, String model, int productionYear, String productionCountry) {
-        this(brand, model, productionYear, productionCountry, "белый", 100);
+        setMaxSpeed(maxSpeed);
     }
 
     public String getBrand() {
@@ -108,5 +119,9 @@ public class Transport {
         } else {
             this.maxSpeed = maxSpeed;
         }
+    }
+
+    public String getFuel() {
+        return fuel;
     }
 }

@@ -12,9 +12,16 @@ public class Car extends Transport {
     private Key key;
     private Insurance insurance;
 
+    public void refill() {
+        System.out.println(getBrand() + " " + getModel() + " вид топлива: " + getFuel());
+    }
 
-    Car(String brand, String model, int maxSpeed, Double engineVolume, String color, Integer productionYear, String productionCountry, String gear, Integer countSeat, String regNumber, String typeOfBody, boolean summerTyres, Key key, Insurance insurance) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+    public Car(String brand, String model, int maxSpeed, String color, int productionYear, String productionCountry, String fuel, Double engineVolume) {
+        this(brand, model, maxSpeed, color, productionYear, productionCountry, fuel, engineVolume, "МКПП", 5, "х000хх000", "Седан", true, new Key(), new Insurance());
+    }
+
+    public Car(String brand, String model, int maxSpeed, String color, int productionYear, String productionCountry, String fuel, Double engineVolume, String gear, Integer countSeat, String regNumber, String typeOfBody, boolean summerTyres, Key key, Insurance insurance) {
+        super(brand, model, productionYear, productionCountry, maxSpeed, fuel);
 
         if (Double.compare(engineVolume, 0) == 0) {
             this.engineVolume = 1.5;
@@ -61,9 +68,6 @@ public class Car extends Transport {
         }
     }
 
-    public Car(String brand, String model, int maxSpeed, Double engineVolume, String color, Integer productionYear, String productionCountry) {
-        this(brand, model, maxSpeed, engineVolume, color, productionYear, productionCountry, "МКПП", 5, "х000хх000", "Седан", true, new Key(), new Insurance());
-    }
 
     public double getEngineVolume() {
         return engineVolume;
